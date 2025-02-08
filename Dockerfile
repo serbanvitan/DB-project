@@ -16,8 +16,5 @@ COPY src/ /app/
 # Set environment variable for Google credentials (pointing to the copied file)
 ENV GOOGLE_APPLICATION_CREDENTIALS="/app/service-account-file.json"
 
-# Expose the port that the app will run on (if needed)
-EXPOSE 8080
-
 # Command to run the app
 CMD ["python", "apigee_manager.py"]
