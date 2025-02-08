@@ -29,6 +29,13 @@ jobs:
 
       - name: Run Docker Container
         run: |
-          docker run -v /home/runner/work/DB-project/DB-project/service-account.json:/app/service-account-file.json \
+          docker run --rm \
             -e GOOGLE_APPLICATION_CREDENTIALS="/app/service-account-file.json" \
-            -e CI=true serban2001/apigee-project:latest
+            -e APIGEE_ORG="${{ secrets.APIGEE_ORG }}" \
+            -e CI=true \
+            -v "$(pwd)/service-account.json:/app/service-account-file.json" \
+            serban2001/apigee-project:latest
+
+      - name: Cleanup Credentials File
+        run: rm -f service-account.json
+        if: always()

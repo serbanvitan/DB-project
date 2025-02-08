@@ -5,7 +5,7 @@ from google.auth.transport.requests import Request
 
 # Configuration
 SERVICE_ACCOUNT_FILE = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
-APIGEE_ORG = "db-project-450115"
+APIGEE_ORG = os.getenv("APIGEE_ORG")
 BASE_URL = f"https://apigee.googleapis.com/v1/organizations/{APIGEE_ORG}"
 
 def get_token():

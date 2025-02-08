@@ -4,7 +4,7 @@ FROM python:3.12-slim
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy the requirements.txt (if you have it) and install dependencies
+# Copy the requirements.txt and install dependencies
 COPY requirements.txt .
 
 # Install dependencies 
