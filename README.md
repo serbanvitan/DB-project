@@ -21,7 +21,7 @@ Am folosit **GitHub Secrets** pentru a securiza fișierul JSON al contului de se
 
 În cadrul pipeline-ului nostru CI/CD, am descărcat aceste secrete din GitHub și le-am folosit pentru a crea fișierul `service-account.json`, care este necesar pentru autentificarea în GCP. Apoi, am utilizat acest fișier pentru a interacționa cu Apigee API și a realiza operațiile de listare și creare aplicații.
 
-### Secundarea credentialelor în Docker:
+### Securizarea credentialelor în Docker:
 În ceea ce privește implementarea în **Docker**, am folosit o metodă de securizare a credentialelor prin **mounting** fișierului JSON al contului de service ca volum. Astfel, am montat fișierul `service-account.json` într-un container Docker și l-am setat în variabila de mediu `GOOGLE_APPLICATION_CREDENTIALS`, pentru a-l utiliza în aplicație. În acest fel, am asigurat că credentialele sunt protejate și că nu au fost expuse în codul sursă sau Dockerfile.
 
 Aceste metode de securizare au fost esențiale pentru a crea un mediu similar cu cel de producție, unde accesul la datele sensibile trebuie să fie limitat și protejat.
