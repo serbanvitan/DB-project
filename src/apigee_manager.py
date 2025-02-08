@@ -115,6 +115,15 @@ def main():
             break
         else:
             print("Invalid choice. Please try again.")
+        
+        # If running locally, allow the user to continue choosing
+        if os.getenv('CI') != 'true':
+            print("\nOptions:")
+            print("1. List All Applications")
+            print("2. List Applications by Developer")
+            print("3. Create a New Application")
+            print("4. Exit")
+            choice = input("\nEnter your choice: ")
 
 if __name__ == "__main__":
     main()

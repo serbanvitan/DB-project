@@ -32,5 +32,6 @@ jobs:
 
       - name: Run Docker Container
         run: |
-          docker run -v ${{ github.workspace }}/service-account.json:/app/service-account-file.json \
-               -e GOOGLE_APPLICATION_CREDENTIALS="/app/service-account-file.json" apigee-project
+          docker run -v /home/runner/work/DB-project/DB-project/service-account.json:/app/service-account-file.json \
+            -e GOOGLE_APPLICATION_CREDENTIALS="/app/service-account-file.json" serban2001/apigee-project:latest
+
