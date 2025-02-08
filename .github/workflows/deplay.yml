@@ -1,0 +1,32 @@
+name: Deploy Apigee App
+
+on: 
+  push:
+    branches:
+      - main  
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Create Google Credentials File
+        run: echo "$GOOGLE_CREDENTIALS" > service-account.json
+        shell: bash
+        env:
+          GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+
+      - name: Run Docker Container
+        run: docker run -v $(pwd)/service-account.json:/app/service-account-file.json \
+               -e GOOGLE_APPLICATION_CREDENTIALS="/app/service-account-file.json" apigee-app
