@@ -89,9 +89,9 @@ def create_app(app_name, developer_email):
 def main():
     print("Apigee API Manager\n")
 
-    # Automatically set the choice if running in CI/CD environment
-    if os.getenv('CI') == 'true':
-        choice = '1'  # Default to list all apps
+    if os.getenv('CI') == 'true':  # Check if running in CI/CD
+        choice = '1'  # Automatically choose the option to list all apps
+        print("Running in CI/CD environment, automatically selecting option 1.")
     else:
         print("\nOptions:")
         print("1. List All Applications")
@@ -101,20 +101,6 @@ def main():
         choice = input("\nEnter your choice: ")
 
     while True:
-        # In CI/CD environment, skip the menu and choose '1'
-        if os.getenv('CI') == 'true':
-            list_all_apps()
-            break
-        
-        # Otherwise, show the options and get user input
-        print("\nOptions:")
-        print("1. List All Applications")
-        print("2. List Applications by Developer")
-        print("3. Create a New Application")
-        print("4. Exit")
-        
-        choice = input("\nEnter your choice: ")
-        
         if choice == '1':
             list_all_apps()
         elif choice == '2':
