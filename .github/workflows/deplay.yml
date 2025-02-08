@@ -28,5 +28,6 @@ jobs:
           GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
 
       - name: Run Docker Container
-        run: docker run -v $(pwd)/service-account.json:/app/service-account-file.json \
+        run: |
+          docker run -v $(pwd)/service-account.json:/app/service-account-file.json \
                -e GOOGLE_APPLICATION_CREDENTIALS="/app/service-account-file.json" apigee-app

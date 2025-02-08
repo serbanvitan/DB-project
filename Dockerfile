@@ -13,9 +13,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the entire app to the working directory in the container
 COPY src/ /app/
 
-# Copy the service account file into the container
-COPY credentials/db-project-450115-940e7cb55ea4.json /app/service-account-file.json
-
 # Set environment variable for Google credentials (pointing to the copied file)
 ENV GOOGLE_APPLICATION_CREDENTIALS="/app/service-account-file.json"
 
