@@ -88,6 +88,17 @@ def create_app(app_name, developer_email):
 
 def main():
     print("Apigee API Manager\n")
+
+    if os.getenv('CI') == 'true':
+       choice = '1'  
+    else:
+      print("\nOptions:")
+      print("1. List All Applications")
+      print("2. List Applications by Developer")
+      print("3. Create a New Application")
+      print("4. Exit")
+      choice = input("\nEnter your choice: ")
+
     
     while True:
         print("\nOptions:")
