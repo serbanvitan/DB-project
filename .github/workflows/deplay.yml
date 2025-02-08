@@ -31,3 +31,4 @@ jobs:
         run: |
           docker run -v /home/runner/work/DB-project/DB-project/service-account.json:/app/service-account-file.json \
             -e GOOGLE_APPLICATION_CREDENTIALS="/app/service-account-file.json" serban2001/apigee-project:latest
+
