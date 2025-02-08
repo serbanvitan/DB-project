@@ -43,7 +43,7 @@ Aceste metode de securizare au fost esențiale pentru a crea un mediu similar cu
    ```
    Pentru a rezolva această problemă, am adăugat o verificare în scriptul Python care să detecteze dacă aplicația rulează în mediu CI/CD și să seteze automat o alegere predefinită:
    ```python
-   if os.getenv('CI') == 'true':  # Check if running in CI/CD
+   if os.getenv('CI') == 'true':
        choice = '1'
    ```
    Aceasta a permis aplicației să continue rularea fără a necesita input manual, simțind mediul automatizat al CI/CD.
