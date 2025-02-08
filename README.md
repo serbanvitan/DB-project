@@ -1,4 +1,4 @@
-# ReadMe - Apigee API Project
+# ReadMe - GCP with Apigee project
 
 ## Partea 1: Configurarea în Google Cloud Platform (GCP)
 
