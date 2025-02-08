@@ -14,7 +14,7 @@ După crearea service account-ului, am generat un **fisier de cheie JSON** pentr
 
 Pentru a asigura un mediu cât mai sigur și cât mai apropiat de producție, am decis să **securizăm credentialele API**. Într-o aplicație reală de producție, securizarea credentialelor este esențială pentru protejarea datelor sensibile. În acest proiect, am folosit două metode de securizare a acestora:
 
-### Secundarea credentialelor în aplicația Python:
+### Securizarea credentialelor în aplicația Python:
 Am folosit **GitHub Secrets** pentru a securiza fișierul JSON al contului de service și informațiile necesare pentru Apigee. În GitHub, am creat două secrete:
 - **SERVICE_ACCOUNT_FILE**: conține fișierul JSON cu credentialele contului de service.
 - **APIGEE_ORG**: conține ID-ul organizației Apigee.
