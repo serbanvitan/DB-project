@@ -21,9 +21,6 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Build Docker Image
-        run: docker build -t apigee-project .
-
       - name: Create Google Credentials File
         run: echo "$GOOGLE_CREDENTIALS" > service-account.json
         shell: bash
@@ -34,4 +31,3 @@ jobs:
         run: |
           docker run -v /home/runner/work/DB-project/DB-project/service-account.json:/app/service-account-file.json \
             -e GOOGLE_APPLICATION_CREDENTIALS="/app/service-account-file.json" serban2001/apigee-project:latest
-
