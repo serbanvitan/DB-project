@@ -92,6 +92,8 @@ def main():
     if os.getenv('CI') == 'true':  # Check if running in CI/CD
         choice = '1'  # Automatically choose the option to list all apps
         print("Running in CI/CD environment, automatically selecting option 1.")
+        list_all_apps()  # Run the list all apps function directly
+        return  # Exit after listing all apps
     else:
         print("\nOptions:")
         print("1. List All Applications")
@@ -116,8 +118,7 @@ def main():
         else:
             print("Invalid choice. Please try again.")
         
-        # If running locally, allow the user to continue choosing
-        if os.getenv('CI') != 'true':
+        if os.getenv('CI') != 'true':  # Only ask for input if not in CI environment
             print("\nOptions:")
             print("1. List All Applications")
             print("2. List Applications by Developer")
@@ -127,3 +128,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

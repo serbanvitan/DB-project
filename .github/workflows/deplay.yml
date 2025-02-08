@@ -1,6 +1,6 @@
 name: Deploy Apigee App
 
-on: 
+on:
   push:
     branches:
       - main  
@@ -30,5 +30,5 @@ jobs:
       - name: Run Docker Container
         run: |
           docker run -v /home/runner/work/DB-project/DB-project/service-account.json:/app/service-account-file.json \
-            -e GOOGLE_APPLICATION_CREDENTIALS="/app/service-account-file.json" serban2001/apigee-project:latest
-
+            -e GOOGLE_APPLICATION_CREDENTIALS="/app/service-account-file.json" \
+            -e CI=true serban2001/apigee-project:latest
